@@ -57,11 +57,29 @@ export default function Page() {
           <div className="editor-section">
             <div className="editor-header">
               <h3>Input Code</h3>
-              <select value={preset} onChange={(e) => setPreset(e.target.value)} className="preset-select">
-                <option value="default">Default Preset</option>
-                <option value="light">Light Obfuscation</option>
-                <option value="heavy">Heavy Obfuscation</option>
-              </select>
+              <div className="options-group">
+                <select value={preset} onChange={(e) => setPreset(e.target.value)} className="preset-select">
+                  <option value="default">Default Preset</option>
+                  <option value="light">Light Obfuscation</option>
+                  <option value="heavy">Heavy Obfuscation</option>
+                </select>
+                <label className="checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={enableVM}
+                    onChange={(e) => setEnableVM(e.target.checked)}
+                  />
+                  <span>VM</span>
+                </label>
+                <label className="checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={enableMinify}
+                    onChange={(e) => setEnableMinify(e.target.checked)}
+                  />
+                  <span>Minify</span>
+                </label>
+              </div>
             </div>
             <textarea
               className="code-editor"
