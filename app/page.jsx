@@ -105,6 +105,14 @@ export default function Page() {
                   />
                   <span>Minify</span>
                 </label>
+                <label className="checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={enableRandomStrings}
+                    onChange={(e) => setEnableRandomStrings(e.target.checked)}
+                  />
+                  <span>Random Strings</span>
+                </label>
               </div>
             </div>
             <textarea
