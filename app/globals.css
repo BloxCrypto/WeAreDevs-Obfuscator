@@ -432,10 +432,16 @@ code {
   .editor-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 12px;
   }
 
   .preset-select {
     width: 100%;
+  }
+
+  .options-group {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
