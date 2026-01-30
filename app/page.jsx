@@ -123,9 +123,14 @@ export default function Page() {
             <div className="editor-header">
               <h3>Obfuscated Code</h3>
               {outputCode && (
-                <button className="btn outline" onClick={copyToClipboard}>
-                  Copy
-                </button>
+                <div className="output-actions">
+                  <button className="btn outline" onClick={copyToClipboard}>
+                    Copy
+                  </button>
+                  <button className="btn outline" onClick={downloadCode}>
+                    Download
+                  </button>
+                </div>
               )}
             </div>
             <textarea
