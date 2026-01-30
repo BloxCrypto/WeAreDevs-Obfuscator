@@ -8,6 +8,8 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [preset, setPreset] = useState('default')
+  const [enableVM, setEnableVM] = useState(false)
+  const [enableMinify, setEnableMinify] = useState(false)
 
   const handleObfuscate = async () => {
     setIsLoading(true)
