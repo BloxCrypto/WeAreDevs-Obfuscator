@@ -64,7 +64,7 @@ function basicObfuscate(code, preset, vm = false, minify = false) {
 
 export async function POST(req) {
   try {
-    const { code, preset = 'default' } = await req.json()
+    const { code, preset = 'default', vm = false, minify = false } = await req.json()
 
     if (!code || typeof code !== 'string') {
       return Response.json(
