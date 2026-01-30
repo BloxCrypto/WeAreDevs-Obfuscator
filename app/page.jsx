@@ -45,7 +45,7 @@ export default function Page() {
     <>
       <header className="site-header">
         <div className="container">
-          <h1>WeAreDevs Obfuscator</h1>
+          <h1>LuaForm Obfuscator</h1>
           <p className="tagline">Obfuscate Lua Scripts Online</p>
         </div>
       </header>
@@ -118,7 +118,7 @@ export default function Page() {
       </main>
 
       <footer className="site-footer">
-        <div className="container">© WeAreDevs Obfuscator — <a href="https://github.com/BloxCrypto/WeAreDevs-Obfuscator" target="_blank" rel="noopener noreferrer">GitHub Repository</a></div>
+        <div className="container">© LuaForm Obfuscator — <a href="https://github.com/BloxCrypto/WeAreDevs-Obfuscator" target="_blank" rel="noopener noreferrer">GitHub Repository</a></div>
       </footer>
     </>
   )
