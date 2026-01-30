@@ -21,7 +21,7 @@ export default function Page() {
       const res = await fetch('/api/obfuscate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code: inputCode, preset, vm: enableVM, minify: enableMinify })
+        body: JSON.stringify({ code: inputCode, preset, vm: enableVM, minify: enableMinify, language })
       })
 
       const data = await res.json()
