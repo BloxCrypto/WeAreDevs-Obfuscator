@@ -50,7 +50,7 @@ function basicObfuscate(code, preset) {
   }
 
   // Add a warning comment
-  result = `-- Obfuscated with WeAreDevs Obfuscator (${preset} preset)\n${result}`
+  result = `-- Obfuscated with LuaForm Obfuscator (${preset} preset)\n${result}`
 
   return result
 }
