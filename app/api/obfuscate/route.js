@@ -116,7 +116,7 @@ export async function POST(req) {
 
       // Fallback to JavaScript-based obfuscation if Lua fails
       console.warn('Lua obfuscation failed, using fallback:', error.message)
-      const obfuscated = basicObfuscate(code, preset)
+      const obfuscated = basicObfuscate(code, preset, vm, minify)
       return Response.json({ obfuscated })
     }
   } catch (error) {
