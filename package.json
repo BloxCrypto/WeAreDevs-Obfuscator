@@ -1,0 +1,21 @@
+{
+  "name": "wearedevs-obfuscator-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Next.js wrapper for the WeAreDevs Obfuscator web UI",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export"
+  },
+  "dependencies": {
+    "next": "14.x",
+    "react": "18.x",
+    "react-dom": "18.x"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
