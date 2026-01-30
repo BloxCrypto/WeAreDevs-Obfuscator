@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WeAreDevs Obfuscator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>WeAreDevs Obfuscator</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#install">Install</a>
+        <a href="#usage">Usage</a>
+        <a href="#docs">Docs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Lightweight Lua obfuscation toolkit</h2>
+      <p>Obfuscate Lua scripts with presets, VM-transforms, string encryption, and more.</p>
+      <div class="actions">
+        <a class="btn" href="https://github.com/BloxCrypto/WeAreDevs-Obfuscator/archive/refs/heads/master.zip" target="_blank">Download ZIP</a>
+        <button id="run-local" class="btn outline">Run locally</button>
+      </div>
+    </section>
+
+    <section id="about">
+      <h3>About</h3>
+      <p>This project provides a set of obfuscation steps focused on Lua: VMification, string encryption, constant arrays, proxified locals, anti-tamper, and more. It's intended for local use via the CLI and as a library.</p>
+    </section>
+
+    <section id="install">
+      <h3>Install</h3>
+      <pre><code>git clone https://github.com/BloxCrypto/WeAreDevs-Obfuscator.git
+cd WeAreDevs-Obfuscator
+lua cli.lua --help</code></pre>
+      <p>Or download the ZIP from GitHub and run with a local Lua runtime.</p>
+    </section>
+
+    <section id="usage">
+      <h3>Usage</h3>
+      <p>Basic CLI example:</p>
+      <pre><code>lua cli.lua -i input.lua -o output.lua --preset=default</code></pre>
+      <p>See full options in the docs included in the repository.</p>
+    </section>
+
+    <section id="docs">
+      <h3>Docs</h3>
+      <ul>
+        <li><a href="#" data-doc="getting-started/installation.md" class="doc-link">Installation guide</a></li>
+        <li><a href="#" data-doc="getting-started/obfuscating-your-first-script.md" class="doc-link">Obfuscating your first script</a></li>
+        <li><a href="#" data-doc="steps/anti-tamper.md" class="doc-link">Anti-tamper step</a></li>
+      </ul>
+    </section>
+
+    <section id="doc-viewer" style="display:none;">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <h3 id="doc-title">Documentation</h3>
+        <button id="close-doc" class="btn outline">Close</button>
+      </div>
+      <div id="doc-content" class="doc-content" style="margin-top:12px;background:rgba(255,255,255,0.02);padding:16px;border-radius:8px;overflow:auto"></div>
+    </section>
+
+    <section id="support">
+      <h3>Support</h3>
+      <p>Open issues or pull requests on the repository to contribute or get help.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© WeAreDevs Obfuscator — <a href="https://github.com/BloxCrypto/WeAreDevs-Obfuscator">Repository</a></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
