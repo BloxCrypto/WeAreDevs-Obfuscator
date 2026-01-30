@@ -4,7 +4,7 @@ import path from 'path'
 import os from 'os'
 
 // Simple JavaScript-based Lua obfuscator fallback
-function basicObfuscate(code, preset) {
+function basicObfuscate(code, preset, vm = false, minify = false) {
   let result = code
   const identifiers = new Set()
   const replacements = {}
@@ -41,16 +41,23 @@ function basicObfuscate(code, preset) {
     return replacements[match] || match
   })
 
-  // Minify: remove comments and extra whitespace if heavy preset
-  if (preset === 'heavy') {
+  // Apply minify if enabled
+  if (minify) {
     result = result
       .replace(/--\[\[[\s\S]*?\]\]/g, '') // Remove multi-line comments
       .replace(/--[^\n]*/g, '') // Remove single-line comments
-      .replace(/\n\s*/g, '\n') // Remove leading whitespace on lines
+      .replace(/\n\s+/g, '\n') // Remove extra whitespace
+      .split('\n')
+      .map(line => line.trim())
+      .filter(line => line.length > 0)
+      .join('\n')
   }
 
   // Add a warning comment
-  result = `-- Obfuscated with LuaForm Obfuscator (${preset} preset)\n${result}`
+  const options = [preset]
+  if (vm) options.push('vm')
+  if (minify) options.push('minify')
+  result = `-- Obfuscated with LuaForm Obfuscator (${options.join(', ')})\n${result}`
 
   return result
 }
