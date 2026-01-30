@@ -136,8 +136,69 @@ code {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 }
 
+.doc-viewer-section {
+  margin-top: 28px;
+  background: transparent;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.doc-viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.doc-viewer-header h3 {
+  margin: 0;
+}
+
+.doc-content {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 16px;
+  border-radius: 8px;
+  overflow: auto;
+  max-height: 600px;
+}
+
+.doc-content p {
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+.doc-content h1,
+.doc-content h2,
+.doc-content h3 {
+  margin: 20px 0 12px;
+}
+
+.doc-content h1 {
+  font-size: 24px;
+}
+
+.doc-content h2 {
+  font-size: 20px;
+}
+
+.doc-content h3 {
+  font-size: 16px;
+}
+
+.doc-content strong {
+  font-weight: 600;
+}
+
+.doc-content code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
 .doc-content img {
   max-width: 100%;
+  margin: 16px 0;
 }
 
 .site-footer {
