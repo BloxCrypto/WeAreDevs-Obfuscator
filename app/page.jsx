@@ -10,6 +10,7 @@ export default function Page() {
   const [preset, setPreset] = useState('default')
   const [enableVM, setEnableVM] = useState(false)
   const [enableMinify, setEnableMinify] = useState(false)
+  const [enableRandomStrings, setEnableRandomStrings] = useState(false)
   const [language, setLanguage] = useState('lua')
 
   const handleObfuscate = async () => {
