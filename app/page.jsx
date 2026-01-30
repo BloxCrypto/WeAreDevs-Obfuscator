@@ -155,8 +155,13 @@ export default function Page() {
 
         <section className="info-section">
           <h3>About This Tool</h3>
-          <p>Obfuscate Lua scripts with presets including VM-transforms, string encryption, constant arrays, and more. The tool applies various obfuscation techniques to make your code harder to reverse-engineer.</p>
+          <p>Obfuscate Lua and Luau scripts with presets including VM-transforms, string encryption, constant arrays, and more. The tool applies various obfuscation techniques to make your code harder to reverse-engineer.</p>
           <div className="presets-info">
+            <h4>Supported Languages:</h4>
+            <ul>
+              <li><strong>Lua:</strong> Standard Lua scripting language</li>
+              <li><strong>Luau:</strong> Roblox Luau dialect with extended features</li>
+            </ul>
             <h4>Available Presets:</h4>
             <ul>
               <li><strong>Default:</strong> Balanced obfuscation with standard transformations</li>
