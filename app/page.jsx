@@ -110,7 +110,7 @@ export default function Page() {
               className="code-editor"
               value={inputCode}
               onChange={(e) => setInputCode(e.target.value)}
-              placeholder="Paste your Lua code here..."
+              placeholder={`Paste your ${language === 'luau' ? 'Luau' : 'Lua'} code here...`}
             />
           </div>
 
