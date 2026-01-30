@@ -79,6 +79,10 @@ export default function Page() {
             <div className="editor-header">
               <h3>Input Code</h3>
               <div className="options-group">
+                <select value={language} onChange={(e) => setLanguage(e.target.value)} className="preset-select">
+                  <option value="lua">Lua</option>
+                  <option value="luau">Luau</option>
+                </select>
                 <select value={preset} onChange={(e) => setPreset(e.target.value)} className="preset-select">
                   <option value="default">Default Preset</option>
                   <option value="light">Light Obfuscation</option>
