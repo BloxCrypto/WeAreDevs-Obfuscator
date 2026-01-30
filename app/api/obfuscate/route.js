@@ -54,7 +54,7 @@ function basicObfuscate(code, preset, vm = false, minify = false, language = 'lu
   }
 
   // Add a warning comment
-  const options = [preset]
+  const options = [preset, language.toUpperCase()]
   if (vm) options.push('vm')
   if (minify) options.push('minify')
   result = `-- Obfuscated with LuaForm Obfuscator (${options.join(', ')})\n${result}`
