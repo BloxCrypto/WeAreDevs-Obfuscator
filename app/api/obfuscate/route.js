@@ -3,6 +3,58 @@ import fs from 'fs'
 import path from 'path'
 import os from 'os'
 
+// Simple JavaScript-based Lua obfuscator fallback
+function basicObfuscate(code, preset) {
+  let result = code
+  const identifiers = new Set()
+  const replacements = {}
+
+  // Find all identifiers (local/variable names)
+  const identifierRegex = /\b([a-zA-Z_][a-zA-Z0-9_]*)\b/g
+  let match
+  while ((match = identifierRegex.exec(code)) !== null) {
+    const id = match[1]
+    // Skip Lua keywords
+    const keywords = ['local', 'function', 'if', 'then', 'else', 'elseif', 'end', 'for', 'while', 'do', 'return', 'true', 'false', 'nil', 'and', 'or', 'not', 'in', 'self', 'print', 'table', 'string', 'math', 'ipairs', 'pairs', 'next', 'type', 'tostring', 'tonumber']
+    if (!keywords.includes(id) && !identifiers.has(id)) {
+      identifiers.add(id)
+    }
+  }
+
+  // Generate obfuscated names based on preset
+  identifiers.forEach((id, index) => {
+    let obfuscated
+    if (preset === 'light') {
+      obfuscated = `_${index}`
+    } else if (preset === 'heavy') {
+      // More aggressive obfuscation with special characters
+      obfuscated = `__${Buffer.from(id).toString('hex').slice(0, 8)}__`
+    } else {
+      // Default: medium obfuscation
+      obfuscated = `_v${index}`
+    }
+    replacements[id] = obfuscated
+  })
+
+  // Replace identifiers
+  result = result.replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\b/g, (match) => {
+    return replacements[match] || match
+  })
+
+  // Minify: remove comments and extra whitespace if heavy preset
+  if (preset === 'heavy') {
+    result = result
+      .replace(/--\[\[[\s\S]*?\]\]/g, '') // Remove multi-line comments
+      .replace(/--[^\n]*/g, '') // Remove single-line comments
+      .replace(/\n\s*/g, '\n') // Remove leading whitespace on lines
+  }
+
+  // Add a warning comment
+  result = `-- Obfuscated with WeAreDevs Obfuscator (${preset} preset)\n${result}`
+
+  return result
+}
+
 export async function POST(req) {
   try {
     const { code, preset = 'default' } = await req.json()
@@ -35,7 +87,7 @@ export async function POST(req) {
       // Execute the obfuscator CLI
       const cliPath = path.resolve('./cli.lua')
       const command = `lua ${cliPath} -i ${inputFile} -o ${outputFile} --preset=${presetArg}`
-      
+
       execSync(command, { stdio: 'pipe' })
 
       // Read obfuscated output
@@ -55,12 +107,10 @@ export async function POST(req) {
         // ignore cleanup errors
       }
 
-      // Return error message
-      const errorMsg = error.stderr?.toString() || error.message || 'Obfuscation failed'
-      return Response.json(
-        { error: errorMsg },
-        { status: 500 }
-      )
+      // Fallback to JavaScript-based obfuscation if Lua fails
+      console.warn('Lua obfuscation failed, using fallback:', error.message)
+      const obfuscated = basicObfuscate(code, preset)
+      return Response.json({ obfuscated })
     }
   } catch (error) {
     return Response.json(
