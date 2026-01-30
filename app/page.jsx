@@ -133,6 +133,11 @@ export default function Page() {
               <li><strong>Light:</strong> Minimal obfuscation for better performance</li>
               <li><strong>Heavy:</strong> Maximum obfuscation with all features enabled</li>
             </ul>
+            <h4>Additional Options:</h4>
+            <ul>
+              <li><strong>VM:</strong> Apply Virtual Machine transformation for advanced obfuscation</li>
+              <li><strong>Minify:</strong> Remove comments and minimize code size</li>
+            </ul>
           </div>
         </section>
       </main>
