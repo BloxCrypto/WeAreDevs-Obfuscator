@@ -3,8 +3,8 @@ import fs from 'fs'
 import path from 'path'
 import os from 'os'
 
-// Simple JavaScript-based Lua obfuscator fallback
-function basicObfuscate(code, preset, vm = false, minify = false) {
+// Simple JavaScript-based Lua/Luau obfuscator fallback
+function basicObfuscate(code, preset, vm = false, minify = false, language = 'lua') {
   let result = code
   const identifiers = new Set()
   const replacements = {}
