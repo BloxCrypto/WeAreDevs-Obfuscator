@@ -1,7 +1,7 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'WeAreDevs Obfuscator',
+  title: 'LuaForm Obfuscator',
   description: 'Lightweight Lua obfuscation toolkit',
 }
 
