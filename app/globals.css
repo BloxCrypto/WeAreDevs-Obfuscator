@@ -26,17 +26,27 @@ body {
 
 .site-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 16px 0;
 }
 
 .site-header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .site-header h1 {
-  font-size: 18px;
+  font-size: 24px;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.tagline {
+  color: var(--muted);
   margin: 0;
+  font-size: 14px;
 }
 
 .site-header nav a {
