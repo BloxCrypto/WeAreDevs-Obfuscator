@@ -112,6 +112,11 @@ body {
   color: var(--accent);
 }
 
+.output-actions {
+  display: flex;
+  gap: 8px;
+}
+
 .options-group {
   display: flex;
   gap: 12px;
